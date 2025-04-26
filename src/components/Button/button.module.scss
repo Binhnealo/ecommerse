@@ -1,0 +1,15 @@
+@import '@styles/main.scss';
+.btn{
+    background: $primary_color;
+    color: $white_color;
+    padding: 13px 45px;
+    cursor: pointer;
+    border: 1px solid $primary_color;
+    font-weight: 500px;
+    font-size: 15px;
+    transition: 0.3s;
+    &:hover{
+        background-color: transparent;
+        color: $primary_color;
+    }
+}

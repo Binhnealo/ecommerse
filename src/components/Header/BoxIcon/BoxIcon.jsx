@@ -1,6 +1,6 @@
-    import fbicon from "../../../assets/icons/svgs/fbicon.svg";
-    import instaIcon from "../../../assets/icons/svgs/instaIcon.svg";
-    import youtubeIcon from "../../../assets/icons/svgs/youtubeIcon.svg";
+    import fbicon from "@icons/svgs/fbicon.svg";
+    import instaIcon from "@icons/svgs/instaIcon.svg";
+    import youtubeIcon from "@icons/svgs/youtubeIcon.svg";
 
 
     

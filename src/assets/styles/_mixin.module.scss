@@ -7,3 +7,9 @@
     background-color: $color;
     @include radius_common($radius);
 }
+@mixin flex_box_custom($justify,$align,$gap:10px){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}

@@ -2,25 +2,25 @@
     import { dataBoxIcon, dataMenu } from "./constants";
     import Menu from "./Menu";
     import Logo from "../../assets/image/logo-project-1.png";
-    import reloadIcon from "../../assets//icons/svgs/reloadIcon.svg";
-    import heartIcon from "../../assets//icons/svgs/heartIcon.svg";
-    import cartIcon from "../../assets//icons/svgs/cartIcon.svg";
+    import reloadIcon from "@icons/svgs/reloadIcon.svg";
+    import heartIcon from "@icons/svgs/heartIcon.svg";
+    import cartIcon from "@icons/svgs/cartIcon.svg";
 
     function MainHeader() {
     return (
-        <div className=" flex  justify-center items-center">
-        <div className="flex items-center justify-between h-[83px]  w-[1250px]">
+        <div className=" flex  justify-center items-center absolute top-0 left-0 right-0">
+        <div className="flex items-center justify-between h-[83px]  w-[1240px]">
             {/* Icon So */}
             <div className="flex justify-center items-center gap-[20px]">
             <div className="flex justify-between gap-[10px]">
-                {dataBoxIcon.map((item) => {
-                return <BoxIcon type={item.type} href={item.href} />;
+                {dataBoxIcon.map((item,index) => {
+                return <BoxIcon key={index} type={item.type} href={item.href} />;
                 })}
             </div>
             {/* Menu */}
             <div className="flex justify-between gap-[20px] text-primaryColor">
-                {dataMenu.slice(0, 3).map((item) => {
-                return <Menu content={item.content} href={item.href} />;
+                {dataMenu.slice(0, 3).map((item,index) => {
+                return <Menu key={index} content={item.content} href={item.href} />;
                 })}
             </div>
             </div>
@@ -30,8 +30,8 @@
             </div>
             <div className=" flex justify-center items-center gap-[20px] text-primaryColor">
             <div className="flex justify-between gap-[20px]">
-                {dataMenu.slice(3, dataMenu.length).map((item) => {
-                return <Menu content={item.content} href={item.href} />;
+                {dataMenu.slice(3, dataMenu.length).map((item,index) => {
+                return <Menu key={index} content={item.content} href={item.href} />;
                 })}
             </div>
             {/* Icon */}

@@ -1,0 +1,15 @@
+@import"@styles/_mixin.module.scss";
+.container{
+    @include flex_box_custom(center, center, 0px);
+
+    background-image: url(../../assets/image/Banner_Project_1.jpeg);
+    min-height: 750px;
+    // width: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.text{
+    font-size: 50px;
+    font-weight: 700;
+}

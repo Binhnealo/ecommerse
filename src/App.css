@@ -2,8 +2,13 @@
     @theme {
     --color-primaryColor: #333;
     --color-secondaryColor: #888;
-    --color-thridaryColor: #555;
+    --color-thriColor: #555;
+    --color-fourColor: #222;
+    --color-fiveColor: #FFFFFFC7;
     --color-whiteColor: #fff;
     --color-subColor: #404040;
-    }
+
+    },
+    
+
 
