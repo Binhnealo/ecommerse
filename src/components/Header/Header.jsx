@@ -1,7 +1,7 @@
     import BoxIcon from "./BoxIcon/BoxIcon";
     import { dataBoxIcon, dataMenu } from "./constants";
     import Menu from "./Menu";
-    import Logo from "../../assets/image/logo-project-1.png";
+    import Logo from "../../assets/image/logo-retina.jpg";
     import reloadIcon from "@icons/svgs/reloadIcon.svg";
     import heartIcon from "@icons/svgs/heartIcon.svg";
     import cartIcon from "@icons/svgs/cartIcon.svg";
@@ -26,7 +26,7 @@
             </div>
             {/* logo */}
             <div>
-            <img src={Logo} alt="Logo" className="w-[173px] h-[40px]" />
+            <img src={Logo} alt="Logo" className="w-[153px] h-[53px]" />
             </div>
             <div className=" flex justify-center items-center gap-[20px] text-primaryColor">
             <div className="flex justify-between gap-[20px]">

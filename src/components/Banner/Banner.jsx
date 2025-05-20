@@ -5,7 +5,7 @@ function Banner() {
     const {container} = banner;
 
 
-    return (  <div className={container} >
+    return (  <section className={container} >
 
         <div className="flex flex-col justify-center items-center gap-[20px] text-fourColor">
             <h2 className="font-normal text-[50px]">Marseille04 Demo</h2>
@@ -13,7 +13,7 @@ function Banner() {
             <Buttton content={"Go to Shop"}/>
         </div>
 
-    </div>);
+    </section>);
 }
 
 export default Banner;
