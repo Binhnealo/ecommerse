@@ -21,3 +21,18 @@
     transform: scale(1);
     opacity: 1;
 }
+.topHeader{
+    position: absolute;
+    top: 0;
+}
+.fixedHeader{
+    position: fixed;
+    top: -83px;
+    background-color: #fff;
+    opacity: 0.9;
+    z-index: 999;
+    transform: translateY(83px);
+    transition: all 0.3s ease-in;
+    box-shadow: 2px 0 12px 0 rgba(0, 0, 0, .15);
+    backdrop-filter: blur(5px);
+}

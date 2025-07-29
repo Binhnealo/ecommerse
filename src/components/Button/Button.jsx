@@ -1,10 +1,14 @@
     import button from './button.module.scss';
+    import classNames from 'classnames';
     
-    function Buttton({ content }) {
-        const {btn} = button;
+    function Buttton({ content, isPrimary = true }) {
+        const {btn, primaryBtn, secondaryBtn} = button;
     return (
         
-        <button className={btn}>
+        <button className={classNames(btn, {
+            [primaryBtn]: isPrimary,
+            [secondaryBtn]: !isPrimary
+        })}>
         {content}
         </button>
     );

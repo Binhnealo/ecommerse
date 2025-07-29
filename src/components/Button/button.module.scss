@@ -1,16 +1,31 @@
 @import '@styles/main.scss';
 .btn{
-    background: $primary_color;
-    color: $white_color;
+    width: 100%;
     padding: 13px 45px;
     cursor: pointer;
-    border: 1px solid $primary_color;
     font-weight: 500px;
     font-size: 15px;
-    transition: 0.3s;
     border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+.primaryBtn{
+    background: $primary_color;
+    color: $white_color;
     &:hover{
-        background-color: transparent;
+        background-color:transparent;
+        border: 1px solid $primary_color;
         color: $primary_color;
+        
+    }
+}
+.secondaryBtn{
+    background: transparent;
+    color: $primary_color;
+    border: 1px solid $primary_color;
+    &:hover{
+        background-color: $primary_color;
+        color: $white_color;
+        
     }
 }

@@ -1,0 +1,24 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+.sideBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 310px;
+    background: #fff;
+    transform:  translateX(310px);
+    z-index: 1001;
+    height: 100vh;    
+    transition: all 0.3s ease;
+}
+.slideSideBar{
+    transform: translateX(0);
+}
