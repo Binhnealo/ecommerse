@@ -18,7 +18,13 @@
     const { fixedHeader } = styles;
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
-    const { setIsOpen } = useContext(SidebarContext);
+    const { setIsOpen, setType } = useContext(SidebarContext);
+
+
+    const handleOpenSideBar = (type) =>{
+        setIsOpen(true);
+        setType(type);
+    }
 
     useEffect(() => {
         // if(scrollPosition > 100){
@@ -68,16 +74,15 @@
                     key={index}
                     content={item.content}
                     href={item.href}
-                    setIsOpen={setIsOpen}
                     />
                 );
                 })}
             </div>
             {/* Icon */}
-            <div className="flex justify-between gap-[20px] cursor-pointer">
-                <TfiReload />
-                <CiHeart />
-                <BsCart3 />
+            <div className="flex justify-between items-center gap-[20px] cursor-pointer">
+                <TfiReload className="size-[20px]" onClick={() => handleOpenSideBar('compare')} />
+                <CiHeart className="size-[30px]" onClick={() => handleOpenSideBar('wishlist')} />
+                <BsCart3 className="size-[20px]" onClick={() => handleOpenSideBar('cart')} />
             </div>
             </div>
         </div>
