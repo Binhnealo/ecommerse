@@ -5,13 +5,14 @@ import routeter from "./routers/router";
 import { Suspense } from "react";
 import { SidebarProvider } from "@/contexts/SidebarProvider";
 import SideBar from "@components/SideBar/SideBar";
+import { ToastProvider } from "@/contexts/ToastProvider";
 
 
 function App() {
   return (
-    <SidebarProvider>
+  <ToastProvider>
+      <SidebarProvider>
       <SideBar/>
-
       <BrowserRouter>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
@@ -28,6 +29,7 @@ function App() {
       </Suspense>
     </BrowserRouter>
     </SidebarProvider>
+  </ToastProvider>
   );
 }
 

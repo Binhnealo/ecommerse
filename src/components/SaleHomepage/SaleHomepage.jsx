@@ -1,4 +1,4 @@
-import Buttton from "@components/Button/Button";
+import Button from "@components/Button/Button";
 import useTransLateXImage from "@/hooks/useTranslateXImage";
 
 function SaleHomepage() {
@@ -25,7 +25,7 @@ function SaleHomepage() {
         <p className=" w-[460px] text-[16px] text-thriColor leading-[25px]">
           Libero sed faucibus facilisis fermentum. Est nibh sed massa sodales.
         </p>
-        <div><Buttton content="Read more" isPrimary={false} /></div>
+        <div><Button content="Read more" isPrimary={false} /></div>
       </div>
       <div
         className="flex justify-center items-center w-full"

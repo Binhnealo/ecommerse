@@ -6,6 +6,8 @@
     import { AiOutlineClose } from "react-icons/ai";
     import Login from "@components/SideBarContent/Login/Login";
 import Compare from "@components/SideBarContent/Compare/Compare";
+import WishList from "@components/SideBarContent/WishList/WishList";
+import Cart from "@components/SideBarContent/Cart/Cart";
 
     function SideBar() {
     const { overlay, sideBar, slideSideBar } = styles;
@@ -20,9 +22,9 @@ import Compare from "@components/SideBarContent/Compare/Compare";
         case "compare":
             return <Compare/>;
         case "wishlist":
-            return "wishlist";
+            return <WishList/>;
         case "cart":
-            return "cart";
+            return <Cart/>;
 
         default:
             return <Login />;
