@@ -1,16 +1,20 @@
     import Button from "@components/Button/Button";
     import InputCommon from "@components/InputCommon/InputCommon";
     import { useFormik } from "formik";
-    import { useContext, useEffect, useState } from "react";
+    import { useContext, useState } from "react";
     import { ToastContext } from "@/contexts/ToastProvider";
     import * as Yup from "yup";
-    import { register, signIn, getInfo } from "@/apis/authService";
+    import { register, signIn } from "@/apis/authService";
     import Cookies from "js-cookie";
+    import { SidebarContext } from "@/contexts/SideBarProvider";
+    import { StoreContext } from "@/contexts/StoreProvider";
 
     function Login() {
     const [isRegister, setIsRegister] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useContext(ToastContext);
+    const { setIsOpen } = useContext(SidebarContext);
+    const { setUserId } = useContext(StoreContext);
 
     const handleToggleForm = () => {
         setIsRegister(!isRegister);
@@ -37,10 +41,9 @@
         const { email: username, password } = values;
         setIsLoading(true);
         if (isRegister) {
-
             await register({ username, password })
-            .then((res)=>{
-                toast.success(res.data.message)
+            .then((res) => {
+                toast.success(res.data.message);
                 setIsLoading(false);
             })
             .catch((err) => {
@@ -54,9 +57,12 @@
             .then((res) => {
                 toast.success("Đăng nhập thành công");
                 setIsLoading(false);
-                const {token,refreshToken} = res.data;
-                Cookies.set("token",token);
+                const { token, refreshToken, id } = res.data;
+                setUserId(id);
+                Cookies.set("token", token);
                 Cookies.set("refreshToken", refreshToken);
+                Cookies.set("userId", id);
+                setIsOpen(false);
             })
             .catch((err) => {
                 toast.error(err.response.data.message);
@@ -65,9 +71,6 @@
         }
         },
     });
-    useEffect(()=>{
-        getInfo()
-    })
 
     return (
         <div className="pt-[30px] px-[20px] pb-0">

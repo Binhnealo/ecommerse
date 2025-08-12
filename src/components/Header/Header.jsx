@@ -13,17 +13,22 @@
     import { useContext, useEffect, useState } from "react";
     import classNames from "classnames";
     import { SidebarContext } from "@/contexts/SideBarProvider";
+import { useNavigate } from "react-router-dom";
 
     function MainHeader() {
     const { fixedHeader } = styles;
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
     const { setIsOpen, setType } = useContext(SidebarContext);
+    const navigate = useNavigate()
 
 
     const handleOpenSideBar = (type) =>{
         setIsOpen(true);
         setType(type);
+    }
+    const handleBackHome = ()=>{
+        navigate('/')
     }
 
     useEffect(() => {
@@ -64,7 +69,7 @@
             </div>
             {/* logo */}
             <div>
-            <img src={Logo} alt="Logo" className="w-[153px] h-[53px]" />
+            <img src={Logo} alt="Logo" className="w-[153px] h-[53px] cursor-pointer" onClick={() => handleBackHome()} />
             </div>
             <div className=" flex justify-center items-center gap-[20px] text-primaryColor">
             <div className="flex justify-between gap-[20px]">

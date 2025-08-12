@@ -1,7 +1,7 @@
     import button from './button.module.scss';
     import classNames from 'classnames';
     
-    function Buttton({ content, isPrimary = true, ...props }) {
+    function Button({ content, isPrimary = true, ...props }) {
         const {btn, primaryBtn, secondaryBtn} = button;
     return (
         
@@ -16,4 +16,4 @@
     );
     }
 
-    export default Buttton;
+    export default Button;

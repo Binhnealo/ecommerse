@@ -6,11 +6,14 @@ import { Suspense } from "react";
 import { SidebarProvider } from "@/contexts/SidebarProvider";
 import SideBar from "@components/SideBar/SideBar";
 import { ToastProvider } from "@/contexts/ToastProvider";
+import { StoreProvider } from "@/contexts/StoreProvider";
+
 
 
 function App() {
   return (
-  <ToastProvider>
+  <StoreProvider>
+    <ToastProvider>
       <SidebarProvider>
       <SideBar/>
       <BrowserRouter>
@@ -30,6 +33,7 @@ function App() {
     </BrowserRouter>
     </SidebarProvider>
   </ToastProvider>
+  </StoreProvider>
   );
 }
 

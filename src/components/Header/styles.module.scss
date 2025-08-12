@@ -4,6 +4,7 @@
     cursor: pointer;
     padding-top: 9px;
     font-size: 15px;
+    position: relative;
 }
 .menu::after{
     content: '';
