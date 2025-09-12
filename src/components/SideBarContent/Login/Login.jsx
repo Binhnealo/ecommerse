@@ -13,7 +13,7 @@
     const [isRegister, setIsRegister] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const { toast } = useContext(ToastContext);
-    const { setIsOpen } = useContext(SidebarContext);
+    const { setIsOpen, handleGetListProductsCart } = useContext(SidebarContext);
     const { setUserId } = useContext(StoreContext);
 
     const handleToggleForm = () => {
@@ -63,6 +63,7 @@
                 Cookies.set("refreshToken", refreshToken);
                 Cookies.set("userId", id);
                 setIsOpen(false);
+                handleGetListProductsCart("cart", id);
             })
             .catch((err) => {
                 toast.error(err.response.data.message);
@@ -75,7 +76,7 @@
     return (
         <div className="pt-[30px] px-[20px] pb-0">
         <div className="text-center text-[18px] mb-[30px] ">
-            {isRegister ? "Sign Up" : "Sign IN"}
+            {isRegister ? "Sign Up" : "Sign In"}
         </div>
         <form onSubmit={formik.handleSubmit}>
             <InputCommon

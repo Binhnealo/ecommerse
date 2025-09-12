@@ -26,7 +26,7 @@ axiosClient.interceptors.response.use(
   },
   async (err) => {
     const originalRequest = err.config;
-    if (err.response.status === 401 && !originalRequest._retry) {
+    if (err.response.status  === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       const refreshToken = Cookies.get("refreshToken");
@@ -47,6 +47,7 @@ axiosClient.interceptors.response.use(
         return Promise.reject(error);
       }
     }
+    
   }
 );
 export default axiosClient;

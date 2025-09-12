@@ -14,8 +14,13 @@ import MainFooter from './../Footer/Footer';
 
     function HomePage() {
         const [listProducts, setListProducts] = useState([]);
+        const query ={
+            sortType: 0,
+            page:1,
+            limit: 10,
+        }
+        useEffect(()=>{getProducts(query).then((res) =>{
 
-        useEffect(()=>{getProducts().then((res) =>{
             setListProducts(res.contents);
         } )},[])
         

@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
     const { fixedHeader } = styles;
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
-    const { setIsOpen, setType } = useContext(SidebarContext);
+    const { setIsOpen, setType, listProductsCart } = useContext(SidebarContext);
     const navigate = useNavigate()
 
 
@@ -87,7 +87,10 @@ import { useNavigate } from "react-router-dom";
             <div className="flex justify-between items-center gap-[20px] cursor-pointer">
                 <TfiReload className="size-[20px]" onClick={() => handleOpenSideBar('compare')} />
                 <CiHeart className="size-[30px]" onClick={() => handleOpenSideBar('wishlist')} />
-                <BsCart3 className="size-[20px]" onClick={() => handleOpenSideBar('cart')} />
+                <div className="relative"> 
+                    <BsCart3 className="size-[20px]" onClick={() => handleOpenSideBar('cart')} />
+                    <div className="absolute top-[-5px] right-[-10px] bg-primaryColor text-white text-[10px] rounded-full w-[20px] h-[20px] flex items-center justify-center">{listProductsCart.length}</div>
+                </div>
             </div>
             </div>
         </div>

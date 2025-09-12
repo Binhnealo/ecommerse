@@ -44,8 +44,8 @@ import Cart from "@components/SideBarContent/Cart/Cart";
             })}
         >
             {isOpen && (
-            <div className="flex justify-center items-center absolute top-[30px] left-[-60px] w-[35px] h-[35px] bg-white rounded-full cursor-pointer z-50 hover:bg-gray-200 transition-all duration-300 ease-in-out">
-                <AiOutlineClose onClick={handleToggle} />
+            <div onClick={handleToggle} className="flex justify-center items-center absolute top-[30px] left-[-60px] w-[35px] h-[35px] bg-white rounded-full cursor-pointer z-50 hover:bg-gray-200 transition-all duration-300 ease-in-out">
+                <AiOutlineClose />
             </div>
             )}
             {handleRenderContent()}
