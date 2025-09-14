@@ -8,6 +8,10 @@ const routeter = [
 {
     path: "/shop",
     component: lazy(() => import("@pages/OurShop/OurShop")) // Lazy load OurShop component
+},
+{
+    path: "/cart",
+    component: lazy(() => import("@pages/Cart/Cart")) // Lazy load Cart component
 }
 ]
 export default routeter;
