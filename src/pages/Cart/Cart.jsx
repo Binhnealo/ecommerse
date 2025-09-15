@@ -9,7 +9,9 @@ function Cart() {
         <MainHeader/>
         <div className="pt-[83px]">
             <Steps/>
-            <Content/>
+            <MainLayout>
+                <Content/>
+            </MainLayout>
         </div>
         <MainFooter/>
     </div>;

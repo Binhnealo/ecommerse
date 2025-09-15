@@ -12,9 +12,9 @@
 .primaryBtn{
     background: $primary_color;
     color: $white_color;
+    border: 1px solid $primary_color;
     &:hover{
         background-color:transparent;
-        border: 1px solid $primary_color;
         color: $primary_color;
         
     }
