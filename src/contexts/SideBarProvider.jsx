@@ -26,7 +26,7 @@ export const SidebarProvider = ({children}) =>{
             })
         }
     }
-    const value = { isOpen, setIsOpen ,type, setType, handleGetListProductsCart, listProductsCart, isLoading}
+    const value = { isOpen, setIsOpen ,type, setType, handleGetListProductsCart, listProductsCart, isLoading, setIsLoading, userId};
 
     useEffect(()=>{
         handleGetListProductsCart("cart", userId)

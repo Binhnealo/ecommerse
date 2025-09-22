@@ -12,13 +12,18 @@ function Cart() {
     const navigate = useNavigate();
     const { listProductsCart, isLoading, setIsOpen } = useContext(SidebarContext);
 
-    const handleNavigateToCart = () => {
+    const handleNavigateToShop = () => {
         navigate("/shop");
+        setIsOpen(false);
+    }
+    const handleNavigateToCart = () => {
+        navigate("/cart");
         setIsOpen(false);
     }
     const subTotal = listProductsCart.reduce((acc, item) => {
         return acc + item.total;
     }, 0);
+    
     return <div className="flex flex-col justify-between h-[99%] py-[20px] pr-[10px] pl-[20px] ">
         <HeaderSideBar icon={<BsCart3  className="size-[25px]" />} title='CART'/>
 
@@ -45,17 +50,17 @@ function Cart() {
         <div>
             <div className="flex justify-between items-center mb-[20px]">
                 <p>SUBTOTAL:</p>
-                <p>${subTotal}</p>
+                <p>${subTotal.toFixed(2)}</p>
             </div>
             <div className="flex flex-col gap-[10px]">
-                <Buttton content={"VIEW CART"}/>
+                <Buttton content={"VIEW CART"} onClick={handleNavigateToCart}/>
                 <Buttton content={"CHECK OUT"} isPrimary={false}/>
             </div>
         </div>
         </div>: <div className="flex flex-col items-center h-full mt-[20px]"> <div className="text-[14px] text-fourColor">
             No Products in Cart
             </div>
-            <div className="my-[20px] mx-auto" ><Button content={"RETURN TO SHOP"} isPrimary={false} onClick={handleNavigateToCart}/></div>
+            <div className="my-[20px] mx-auto" ><Button content={"RETURN TO SHOP"} isPrimary={false} onClick={handleNavigateToShop}/></div>
             </div> }
     </div>;
 }

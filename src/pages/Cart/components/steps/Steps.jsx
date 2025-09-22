@@ -5,9 +5,9 @@ function Steps() {
     
     return   <div className="bg-[#fafafa] w-full flex flex-col justify-center items-center py-[2.3vw] gap-[40px] mb-[2.3vw]">
 
-        <div className="flex gap-[30px] justify-center items-center  ">
+        <div className="flex gap-[20px] justify-center items-center  ">
             {dataSteps.map((item, index) =>{
-                return <div key={index} >
+                return <div className="flex items-center justify-center gap-[20px]" key={index} >
                 <Stepper number={ item.number} content={item.content}  isDisabled={index !== 0}/>
                 {index !==dataSteps.length -1 && <div className="min-w-[120px] h-[1px] bg-[#e1e1e1]"></div>}
                 
