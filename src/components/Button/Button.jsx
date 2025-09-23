@@ -1,7 +1,7 @@
     import button from './button.module.scss';
     import classNames from 'classnames';
-    
-    function Button({ content, isPrimary = true, ...props }) {
+
+    function Button({ content, isPrimary = true, width, height, padding, fontSize, border, ...props }) {
         const {btn, primaryBtn, secondaryBtn} = button;
     return (
         
@@ -9,6 +9,7 @@
             [primaryBtn]: isPrimary,
             [secondaryBtn]: !isPrimary
         })}
+        style={{ width, height, padding, fontSize, border }} 
         {...props}
         >
         {content}

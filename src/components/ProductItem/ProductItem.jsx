@@ -1,6 +1,10 @@
-import reloadIcon from "@icons/svgs/reloadIcon.svg";
-import heartIcon from "@icons/svgs/heartIcon.svg";
-import cartIcon from "@icons/svgs/cartIcon.svg";
+
+import { LiaShoppingBagSolid } from "react-icons/lia";
+import { CiHeart } from "react-icons/ci";
+import { TfiReload } from "react-icons/tfi";
+import { LiaEyeSolid } from "react-icons/lia";
+
+
 import cls from "classnames";
 import Button from "@components/Button/Button";
 import { useContext, useEffect, useState } from "react";
@@ -10,7 +14,7 @@ import { OurShopContext } from "@/contexts/OurShopProvider";
 import Cookies from "js-cookie";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import { ToastContext } from "@/contexts/ToastProvider";
-import { addProductToCart, getCart } from "@/apis/cartService";
+import { addProductToCart } from "@/apis/cartService";
 import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
 
 function ProductItem({
@@ -27,12 +31,18 @@ function ProductItem({
   const [sizeChoose, setChosenSize] = useState("");
   const [isLoadingAddToCart, setIsLoadingAddToCart] = useState(false);
   const userId = Cookies.get("userId");
-  const { setIsOpen, setType, handleGetListProductsCart } =
+  const { setIsOpen, setType, handleGetListProductsCart, setProductDetail } =
     useContext(SidebarContext);
   const { toast } = useContext(ToastContext);
 
   const handleSizeChoose = (size) => {
     setChosenSize(size);
+  };
+
+  const handleShowDetailProductSideBar = () => {
+    setIsOpen(true);
+    setType("detail");
+    setProductDetail(details);
   };
   const handleAddToCart = () => {
     console.log("add to cart", userId);
@@ -91,16 +101,16 @@ function ProductItem({
         />
         <div className="absolute right-0 bottom-5 bg-whiteColor opacity-0 group-hover:opacity-100 group-hover:right-5 duration-300 ">
           <div className="w-[40px] h-[40px] flex justify-center items-center hover:bg-fiveColor duration-300">
-            <img className="w-[17px] h-[17px]  " src={cartIcon} alt="Cart" />
+            <LiaShoppingBagSolid className="text-[20px]" alt="Cart" />
           </div>
           <div className="w-[40px] h-[40px] flex justify-center items-center  hover:bg-fiveColor duration-300">
-            <img className="w-[17px] h-[17px]" src={heartIcon} alt="Like" />
+            <CiHeart className="text-[22px]" alt="Like" />
           </div>
           <div className="w-[40px] h-[40px] flex justify-center items-center  hover:bg-fiveColor duration-300">
-            <img className="w-[17px] h-[17px]" src={reloadIcon} alt="Reload" />
+            <TfiReload className="text-[17px]" alt="Reload" />
           </div>
           <div className="w-[40px] h-[40px] flex justify-center items-center  hover:bg-fiveColor duration-300">
-            <img className="w-[17px] h-[17px]" src={reloadIcon} alt="Reload" />
+            <LiaEyeSolid className="text-[20px]" alt="Reload" onClick={handleShowDetailProductSideBar} />
           </div>
         </div>
       </div>
