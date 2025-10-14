@@ -7,7 +7,7 @@ import { LiaEyeSolid } from "react-icons/lia";
 
 import cls from "classnames";
 import Button from "@components/Button/Button";
-import { useContext, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 
 import { OurShopContext } from "@/contexts/OurShopProvider";
 
@@ -16,6 +16,7 @@ import { SidebarContext } from "@/contexts/SideBarProvider";
 import { ToastContext } from "@/contexts/ToastProvider";
 import { addProductToCart } from "@/apis/cartService";
 import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
+import { useNavigate } from "react-router-dom";
 
 function ProductItem({
   src,
@@ -24,6 +25,7 @@ function ProductItem({
   price,
   details,
   isHomePage = true,
+  slideItem = false,
 }) {
   // const { isShowGrid } = useContext(OurShopContext);
   const ourShopStore = useContext(OurShopContext);
@@ -34,6 +36,8 @@ function ProductItem({
   const { setIsOpen, setType, handleGetListProductsCart, setProductDetail } =
     useContext(SidebarContext);
   const { toast } = useContext(ToastContext);
+
+  const navigate = useNavigate();
 
   const handleSizeChoose = (size) => {
     setChosenSize(size);
@@ -77,6 +81,11 @@ function ProductItem({
         toast.error("Add to cart failed");
       });
   };
+  const handleNavigateToDetail = () =>{
+    
+    const  path = `/product/${details._id}`;
+    navigate(path);
+  }
 
   useEffect(() => {
     if (isHomePage) {
@@ -86,18 +95,26 @@ function ProductItem({
     }
   }, [isHomePage, ourShopStore?.isShowGrid]);
 
+
+  useEffect(() => {
+    if(slideItem){
+        setIsShowGrid(true);
+    }
+  },[slideItem])
+
   return (
     <div
       className={cls("", {
         ["flex items-center justify-start w-[600px] "]: !isShowGrid,
       })}
     >
-      <div className="w-full h-[353px] relative group cursor-pointer">
-        <img className="w-full h-full object-cover  " src={src} alt="ảnh mẫu" />
+      <div className="w-full h-[353px] relative group cursor-pointer" >
+        <img className="w-full h-full object-cover  " src={src} alt="ảnh mẫu"  />
         <img
           className="w-full h-full object-cover opacity-0 absolute top-0 left-0 right-0 bottom-0 hover:opacity-100 duration-300 "
           src={prevSrc}
           alt=""
+          onClick={handleNavigateToDetail}
         />
         <div className="absolute right-0 bottom-5 bg-whiteColor opacity-0 group-hover:opacity-100 group-hover:right-5 duration-300 ">
           <div className="w-[40px] h-[40px] flex justify-center items-center hover:bg-fiveColor duration-300">
