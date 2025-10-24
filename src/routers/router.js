@@ -17,5 +17,9 @@ const routeter = [
     path: "/product/:id",
     component: lazy(() => import("@pages/DetailProduct/DetailProduct")) // Lazy load DetailProduct component
 },
+{
+    path: "/about-us",
+    component: lazy(() => import("@pages/AboutUs/AboutUs")) // Lazy load AboutUs component
+},
 ]
 export default routeter;

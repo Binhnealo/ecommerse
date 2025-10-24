@@ -19,6 +19,9 @@ import { useNavigate } from "react-router-dom";
         if (content === 'Our Shop'){
             navigate('/shop')
         }
+        if (content === 'About Us'){
+            navigate('/about-us')
+        }
 
     };
     const handleRenderText = ()=>{
