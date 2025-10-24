@@ -20,11 +20,12 @@ import ProductItem from "@components/ProductItem/ProductItem";
     return (
         <Slider {...settings}>
         {data.map((item, index) => {
+            const src = !item.image ? item.images[0] : item.image;
             return <div className="px-[10px]" key={index}>
             {isProductItem ? (
                 <ProductItem 
-                src={item.image}
-                prevSrc={item.Image}
+                src={src}
+                prevSrc={src}
                 name={item.name}
                 price={item.price}
                 size={item.size}

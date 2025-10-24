@@ -5,7 +5,7 @@
     import Info from "@components/Info/Info";
 import { useEffect, useState } from "react";
 
-import getProducts from '@/apis/productService';
+import {getProducts} from '@/apis/productService';
 import PopularProducts from "@components/PopularProducts/PopularProducts";
 import SaleHomepage from "@components/SaleHomepage/SaleHomepage";
 import MainFooter from './../Footer/Footer';

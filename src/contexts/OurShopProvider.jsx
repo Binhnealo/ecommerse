@@ -1,5 +1,5 @@
     import { createContext, useEffect, useState } from "react";
-    import getProducts from "@/apis/productService";
+    import {getProducts} from "@/apis/productService";
 
     export const OurShopContext = createContext();
 

@@ -28,8 +28,8 @@ function Cart() {
         <HeaderSideBar icon={<BsCart3  className="size-[25px]" />} title='CART'/>
 
         {listProductsCart.length ?<div className=" flex flex-col flex-1 justify-between ">
-            <div>
-            <div className="relative ">
+            <div className="min-h-0"> 
+            <div className=" max-h-[calc(100vh-250px)] overflow-y-auto overflow-x-hidden pr-[6px] ">
                 {isLoading ? <LoadingTextCommon /> : listProductsCart.map((item, index) =>(
                 <ItemProd key={index}
                 src={item.images[0]}
@@ -40,7 +40,7 @@ function Cart() {
                 quantity={item.quantity}
                 productId={item.productId}
                 userId ={item.userId}
-                />
+                /> 
                 
             ))}
             </div>

@@ -38,11 +38,9 @@
         userId,
         productDetail,
         setProductDetail,
+        setListProductsCart,
     };
 
-    useEffect(() => {
-        handleGetListProductsCart("cart", userId);
-    }, []);
     return (
         <SidebarContext.Provider value={value}>{children}</SidebarContext.Provider>
     );

@@ -14,12 +14,14 @@
     import classNames from "classnames";
     import { SidebarContext } from "@/contexts/SideBarProvider";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "@/contexts/StoreProvider";
 
     function MainHeader() {
     const { fixedHeader } = styles;
     const { scrollPosition } = useScrollHandling();
     const [fixedPosition, setFixedPosition] = useState(false);
-    const { setIsOpen, setType, listProductsCart } = useContext(SidebarContext);
+    const { setIsOpen, setType, listProductsCart,userId,handleGetListProductsCart } = useContext(SidebarContext);
+    const {userInfo}= useContext(StoreContext)
     const navigate = useNavigate()
 
 
@@ -30,15 +32,14 @@ import { useNavigate } from "react-router-dom";
     const handleBackHome = ()=>{
         navigate('/')
     }
-
+    const handleOpenCartSideBar = () => {
+        handleGetListProductsCart("cart", userId);
+        handleOpenSideBar('cart')
+    }
+    const totalItemsInCart = listProductsCart.length? listProductsCart.reduce((acc, item) =>{
+        return acc + item.quantity;
+    },0) : 0;
     useEffect(() => {
-        // if(scrollPosition > 100){
-        //     setFixedPosition(true)
-        // }
-        // else{
-        //     setFixedPosition(false)
-        // }
-
         setFixedPosition(scrollPosition > 80 ? true : false);
     }, [scrollPosition]);
     return (
@@ -88,8 +89,8 @@ import { useNavigate } from "react-router-dom";
                 <TfiReload className="size-[20px]" onClick={() => handleOpenSideBar('compare')} />
                 <CiHeart className="size-[30px]" onClick={() => handleOpenSideBar('wishlist')} />
                 <div className="relative"> 
-                    <BsCart3 className="size-[20px]" onClick={() => handleOpenSideBar('cart')} />
-                    <div className="absolute top-[-5px] right-[-10px] bg-primaryColor text-white text-[10px] rounded-full w-[20px] h-[20px] flex items-center justify-center">{listProductsCart.length}</div>
+                    <BsCart3 className="size-[20px]" onClick={() =>handleOpenCartSideBar()} />
+                    <div className="absolute top-[-5px] right-[-10px] bg-primaryColor text-white text-[10px] rounded-full w-[20px] h-[20px] flex items-center justify-center">{totalItemsInCart || userInfo?.amountCart|| 0}</div>
                 </div>
             </div>
             </div>

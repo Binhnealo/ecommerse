@@ -7,16 +7,16 @@ import { LiaEyeSolid } from "react-icons/lia";
 
 import cls from "classnames";
 import Button from "@components/Button/Button";
-import { use, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { OurShopContext } from "@/contexts/OurShopProvider";
 
 import Cookies from "js-cookie";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import { ToastContext } from "@/contexts/ToastProvider";
-import { addProductToCart } from "@/apis/cartService";
 import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
 import { useNavigate } from "react-router-dom";
+import { handleAddProductToCartCommon } from "@/utils/help";
 
 function ProductItem({
   src,
@@ -49,37 +49,18 @@ function ProductItem({
     setProductDetail(details);
   };
   const handleAddToCart = () => {
-    console.log("add to cart", userId);
-    if (!userId) {
-      setType("login");
-      setIsOpen(true);
-      toast.warning("Please login to add product to cart");
-      return;
-    }
-
-    if (!sizeChoose) {
-      toast.warning("Please choose size");
-      return;
-    }
-    const data = {
+    handleAddProductToCartCommon(
       userId,
-      productId: details._id,
-      size: sizeChoose,
-      quantity: 1,
-    };
-    setIsLoadingAddToCart(true);
-    addProductToCart(data)
-      .then((res) => {
-        setIsLoadingAddToCart(false);
-        toast.success("Add to cart successfully");
-        setType("cart");
-        setIsOpen(true);
-        handleGetListProductsCart('cart', userId);
-      })
-      .catch((err) => {
-        setIsLoadingAddToCart(false);
-        toast.error("Add to cart failed");
-      });
+      setType,
+      setIsOpen,
+      toast,
+      sizeChoose,
+      details._id,
+      1,
+      setIsLoadingAddToCart,
+      handleGetListProductsCart
+
+    )
   };
   const handleNavigateToDetail = () =>{
     

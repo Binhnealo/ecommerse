@@ -7,4 +7,12 @@
     const res = await axiosClient.get(`/product?sortType=${sortType}&page=${page}&${queryLimit}`);
     return res.data;
     };
-    export default getProducts;
+    const getDetailProduct = async (id) => {
+        const res = await axiosClient.get(`/product/${id}`);
+        return res.data;
+    }
+    const getRelatedProducts = async (id) => {
+        const res = await axiosClient.get(`/related-products/${id}`);
+        return res.data.relatedProducts;
+    }
+    export { getProducts, getDetailProduct, getRelatedProducts };

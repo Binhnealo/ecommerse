@@ -1,11 +1,12 @@
     import CartTable from "@pages/Cart/components/content/CartTable";
     import CartSummary from "@/pages/Cart/components/content/CartSummary";
     import Button from "@components/Button/Button";
-    import { useContext } from "react";
+    import { useContext, useEffect } from "react";
     import { SidebarContext } from "@/contexts/SideBarProvider";
     import { addProductToCart, deleteItem, deleteCart } from "@/apis/cartService";
     import { BsCart3 } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+    import { useNavigate } from "react-router-dom";
+    import { getCart } from "@/apis/cartService";
 
     function Content() {
     const {
@@ -14,6 +15,7 @@ import { useNavigate } from "react-router-dom";
         isLoading,
         setIsLoading,
         userId,
+        setListProductsCart,
     } = useContext(SidebarContext);
     const navigate = useNavigate();
     const handleReplaceQuantity = (data) => {
@@ -54,7 +56,20 @@ import { useNavigate } from "react-router-dom";
     };
     const handleNavigateToShop = () => {
         navigate("/shop");
-    }
+    };
+    useEffect(() => {
+        if (userId) {
+        getCart(userId)
+            .then((res) => {
+            setListProductsCart(res.data.data);
+            setIsLoading(false);
+            })
+            .catch((err) => {
+            setListProductsCart([]);
+            setIsLoading(false);
+            });
+        }
+    }, []);
     return (
         <>
         {listProductsCart.length > 0 ? (
@@ -97,10 +112,19 @@ import { useNavigate } from "react-router-dom";
             </div>
         ) : (
             <div className="flex flex-col items-center justify-center  h-[299px]">
-            <div><BsCart3 className="text-[40px] text-fourColor mb-[10px]" /></div>
-            <div className="text-primaryColor text-[25px] mb-[7px]">YOUR SHOPING CART IS EMPTY</div>
-            <div className="text-[14px] text-thriColor mb-[20px]">We invite you to get acquainted with an assortment of our shop. Surely you can find something for yourself!</div>
-            <div><Button content="RETURN TO SHOP" onClick={handleNavigateToShop}/></div>
+            <div>
+                <BsCart3 className="text-[40px] text-fourColor mb-[10px]" />
+            </div>
+            <div className="text-primaryColor text-[25px] mb-[7px]">
+                YOUR SHOPING CART IS EMPTY
+            </div>
+            <div className="text-[14px] text-thriColor mb-[20px]">
+                We invite you to get acquainted with an assortment of our shop.
+                Surely you can find something for yourself!
+            </div>
+            <div>
+                <Button content="RETURN TO SHOP" onClick={handleNavigateToShop} />
+            </div>
             </div>
         )}
         </>
