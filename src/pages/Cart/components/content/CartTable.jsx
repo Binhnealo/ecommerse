@@ -2,7 +2,6 @@
     import SelectBox from "@/pages/OurShop/components/SelectBox/SelectBox";
     import LoadingCart from "@/pages/Cart/components/LoadingCart";
     const CartTable = ({ listProductsCart, getData, isLoading, getDataDelete }) => {
-    console.log(listProductsCart);
 
     const showOptions = [
         { label: "1", value: "1" },

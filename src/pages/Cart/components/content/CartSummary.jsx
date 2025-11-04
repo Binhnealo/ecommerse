@@ -1,11 +1,18 @@
     import Button from "@components/Button/Button";
 import LoadingCart from "@/pages/Cart/components/LoadingCart";
 import PaymentMethod from "@components/PaymentMethod/PaymentMethod";
+import { useContext } from "react";
+import { SteperContext } from "@/contexts/SteperProvider";
     function CartSummary({ listProductsCart, isLoading }) {
+
+        const { setCurrentStep } = useContext(SteperContext);
     const totalPrice = listProductsCart.reduce(
         (total, product) => total + product.price * product.quantity,
         0
     );
+    const handleProceedToCheckout = () => {
+        setCurrentStep(2);
+    }
 
     return (
         <div>
@@ -23,7 +30,7 @@ import PaymentMethod from "@components/PaymentMethod/PaymentMethod";
             </div>
             <div>
             <div className="mb-[10px]">
-                <Button content={"PROCEED TO CHECKOUT"} />
+                <Button content={"PROCEED TO CHECKOUT"} onClick={handleProceedToCheckout} />
             </div>
             <div>
                 <Button content={"CONTINUE SHOPPING"} isPrimary={false} />

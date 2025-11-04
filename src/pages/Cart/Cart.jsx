@@ -2,19 +2,22 @@ import MainHeader from "@components/Header/Header";
 import Steps from "@/pages/Cart/components/steps/Steps";
 import MainFooter from "@components/Footer/Footer";
 import MainLayout from "@components/Layout/Layout";
-import Content from "@/pages/Cart/components/content/Content";
+import ContentStep from "@/pages/Cart/components/ContentStep";
+import { SteperProvider } from "@/contexts/SteperProvider";
 
 function Cart() {
-    return <div>
+    
+    return <SteperProvider>
         <MainHeader/>
         <div className="pt-[83px]">
-            <Steps/>
+            <Steps />
             <MainLayout>
-                <Content/>
+                <ContentStep/>
+                
             </MainLayout>
         </div>
         <MainFooter/>
-    </div>;
+    </SteperProvider>;
 }
 
 export default Cart;

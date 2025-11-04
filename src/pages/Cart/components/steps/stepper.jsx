@@ -1,8 +1,11 @@
     import cls from "classnames";
+import { useContext } from "react";
+import { SteperContext } from "@/contexts/SteperProvider";
 
-    function Stepper({ number, content, isDisabled }) {
+    function Stepper({ number, content, isDisabled}) {
+        const { setCurrentStep } = useContext(SteperContext);
     return (
-        <div className="flex items-center justify-center gap-[10px]">
+        <div className="flex items-center justify-center gap-[10px]" onClick={() => setCurrentStep(number)}>
         <div
             className={cls(
             "w-[30px] h-[30px] flex justify-center items-center text-[15px] rounded-full",
