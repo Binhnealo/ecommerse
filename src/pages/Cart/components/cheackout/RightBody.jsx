@@ -3,8 +3,9 @@ import { useContext } from "react";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import Button from "@components/Button/Button";
 
-    function RightBody({handleExternalSubmit}) {
 
+    function RightBody({handleExternalSubmit}) {
+        
         const {
                 listProductsCart,
             } = useContext(SidebarContext);

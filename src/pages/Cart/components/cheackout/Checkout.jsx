@@ -1,11 +1,12 @@
     import InputCustom from "@components/InputCommon2/Input";
     import axios from "axios";
-    import { useEffect, useRef, useState } from "react";
+    import { useContext, useEffect, useRef, useState } from "react";
 
     import { useForm } from "react-hook-form";
     import RightBody from "@/pages/Cart/components/cheackout/rightBody";
     import { createOrder } from "@/apis/orderService";
     import { useNavigate } from "react-router-dom";
+import { SteperContext } from "@/contexts/SteperProvider";
 
     const CN_BASE = "https://countriesnow.space/api/v0.1";
     function Checkout() {
@@ -14,7 +15,7 @@
     const [states, setStates] = useState([]);
 
     const navigate = useNavigate();
-
+        const { setCurrentStep } = useContext(SteperContext);
     const {
         register,
         handleSubmit,
@@ -30,8 +31,9 @@
     const onSubmit = async (data) => {
         try {
         const res = await createOrder(data);
+        setCurrentStep(3);
         navigate(
-            `/order?id=${res.data.data._id}&totalAmount=${res.data.data.totalAmount}`
+            `/cart?id=${res.data.data._id}&totalAmount=${res.data.data.totalAmount}`
         );
         } catch (error) {
         console.error("Error submitting form:", error);
