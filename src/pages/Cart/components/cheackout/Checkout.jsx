@@ -3,7 +3,7 @@
     import { useContext, useEffect, useRef, useState } from "react";
 
     import { useForm } from "react-hook-form";
-    import RightBody from "@/pages/Cart/components/cheackout/rightBody";
+    import RightBody from "@/pages/Cart/components/cheackout/RightBody";
     import { createOrder } from "@/apis/orderService";
     import { useNavigate } from "react-router-dom";
 import { SteperContext } from "@/contexts/SteperProvider";
