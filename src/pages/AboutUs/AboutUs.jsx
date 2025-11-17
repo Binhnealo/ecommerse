@@ -2,7 +2,7 @@
     import MainHeader from "@components/Header/Header";
     import MainLayout from "@components/Layout/Layout";
     import { useNavigate } from "react-router-dom";
-import Logos from "@/pages/AboutUs/components/logos";
+import Logos from "@/pages/AboutUs/components/Logos";
 
     function AboutUs() {
     const navigate = useNavigate();
