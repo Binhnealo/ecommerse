@@ -1,12 +1,12 @@
-import HomePage from "@components/HomePage/HomePage";
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import routeter from "./routers/router";
 import { Suspense } from "react";
-import { SidebarProvider } from "@/contexts/SidebarProvider";
-import SideBar from "@components/SideBar/SideBar";
-import { ToastProvider } from "@/contexts/ToastProvider";
-import { StoreProvider } from "@/contexts/StoreProvider";
+import { SidebarProvider } from "@/contexts/SidebarProvider.jsx";
+import SideBar from "@components/SideBar/SideBar.jsx";
+import { ToastProvider } from "@/contexts/ToastProvider.jsx";
+import { StoreProvider } from "@/contexts/StoreProvider.jsx";
 
 
 

@@ -1,10 +1,11 @@
-    import { useLocation } from "react-router-dom";
+    import { useLocation, useNavigate } from "react-router-dom";
 import { getDetailOrder } from "@/apis/orderService";
 import { useEffect, useState } from "react";
+import Button from "@components/Button/Button";
 
 
     function QrPayment() {
-
+        const navigate = useNavigate();
         const [isSuccess, setIsSuccess] = useState(false);
 
     const location = useLocation();
@@ -12,6 +13,9 @@ import { useEffect, useState } from "react";
     const id = params.get("id");
     const totalAmount = params.get("totalAmount");
     const qrCodeImage = `https://qr.sepay.vn/img?acc=VQRQAFBZN6530&bank=MBBank&amount=${totalAmount}&des=${id}`;
+    const handleReturnToShop = () => {
+        navigate("/shop");
+    }
 
     let interval;
     const handleGetDetailOrder = async () => {
@@ -40,10 +44,15 @@ import { useEffect, useState } from "react";
 
         return () => clearInterval(interval);
         
-    }, []);
+    }, [id]);
 
     return (
-        <div className="flex justify-between">
+        <>
+        {isSuccess? (<div className="flex flex-col justify-center items-center">
+            <p>bạn đã thanh toán thành công</p>
+            <div><Button onclick={handleReturnToShop} content={"Return To Shop"}/></div>
+
+        </div>): (<div className="flex justify-between">
         <div className="flex flex-col gap-[20px] justify-center items-center">
             <h4 className="text-[20px] text-primaryColor">
             Quét mã QR để thanh toán
@@ -85,7 +94,7 @@ import { useEffect, useState } from "react";
                 <div className=" flex justify-between pb-[20px] border-b border-sixColor mb-[20px]">
                 <p className="text-secondaryColor">Số Tiền</p>
                 <p className="text-primaryColor text-[18px] font-bold">
-                    {totalAmount} VND
+                    {totalAmount} $
                 </p>
                 </div>
 
@@ -96,13 +105,14 @@ import { useEffect, useState } from "react";
 
                 <div className="flex justify-between mb-[20px]">
                 <p className="text-primaryColor font-bold text-[18px]">Tổng tiền</p>
-                <p  className="text-red-500 text-[18px] font-bold">{totalAmount} VND</p>
+                <p  className="text-red-500 text-[18px] font-bold">{totalAmount} $</p>
                 </div>
 
             </div>
             </div>
         </div>
-        </div>
+        </div>)}
+        </>
     );
     }
 

@@ -27,7 +27,7 @@
                 />
             </div>
             <div>
-                <p className="text-white text-[15px]">Copyright © 2024 XStore theme.</p>
+                <p className="text-white text-[15px]">Copyright © 20205 By Binh.</p>
             </div>
         </div>
     );
