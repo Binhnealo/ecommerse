@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { SteperContext } from "@/contexts/SteperProvider";
 import Content from "@/pages/Cart/components/content/Content";
-import Checkout from "@/pages/Cart/components/cheackout/CheckOut";
+import Checkout from "@/pages/Cart/components/Cheackout/CheckOut";
 import QrPayment from "@/pages/Cart/components/QrPayment";
 
 function ContentStep() {
