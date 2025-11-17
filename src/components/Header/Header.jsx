@@ -2,7 +2,7 @@
     import BoxIcon from "./BoxIcon/BoxIcon";
     import { dataBoxIcon, dataMenu } from "./constants";
     import Menu from "./Menu";
-    import Logo from "../../assets/image/logo-retina.jpg";
+    import Logo from "../../assets/image/Logo-retina.jpg";
     import { TfiReload } from "react-icons/tfi";
 
     import { CiHeart } from "react-icons/ci";
