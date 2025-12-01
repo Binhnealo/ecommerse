@@ -51,7 +51,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
     useEffect(() => {
         if (!watch("country")) return;
 
-        if (watch("country") === "Vietnam" && !localStorage.getItem("listcities")) {
+        if (watch("country") === "VietNam" && !localStorage.getItem("listcities")) {
         axios.get(`https://provinces.open-api.vn/api/?depth=2`).then((res) => {
             localStorage.setItem("listcities", JSON.stringify(res.data));
             setCities(
@@ -138,9 +138,9 @@ import { SteperContext } from "@/contexts/SteperProvider";
             <div className="mb-[20px]">
                 <InputCustom
                 label={"Country / Region"}
-                placeholder={"Select your country"}
+                placeholder={"Your country"}
                 isRequired
-                dataOptions={countries}
+                type={"text"}
                 register={register("country", { required: true })}
                 isError={errors.country}
                 />
