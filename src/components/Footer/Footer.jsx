@@ -10,7 +10,7 @@
                 alt="logo footer"
                 />
             </div>
-            <div className="flex gap-[40px] ">
+            <div className="flex items-center justify-center flex-wrap gap-[40px] ">
                 {dataMenuFooter.map((item, index) => (
                 <span key={index} className="text-[15px] text-white hover:opacity-75 transition-colors duration-300 cursor-pointer">
                     {item.content}

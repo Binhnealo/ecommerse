@@ -62,10 +62,10 @@
             }
         )}
         >
-        <div className="flex items-center justify-between h-[83px] w-[95%] sm:w-[90%] lg:w-[1240px]">
+        <div className="flex items-center justify-between h-[83px] w-[95%] px-[0px] lg:px-[30px] sm:w-[90%] lg:w-[1240px]">
             {/* Menu Icon Mobile */}
             <div className="inline-block lg:hidden">
-            <div className=" pl-[10px] cursor-pointer "><CiMenuBurger /></div>
+            <div className=" pl-[10px] cursor-pointer "><CiMenuBurger onClick={() => handleOpenSideBar("menu")} /></div>
             </div>
             {/* Icon social & Menu left */}
             <div className="flex  items-center gap-[20px] hidden lg:flex">
@@ -79,7 +79,7 @@
             <div className="flex gap-[20px] text-primaryColor">
                 {dataMenu.slice(0, 3).map((item, index) => {
                 return (
-                    <Menu key={index} content={item.content} href={item.href} />
+                    <Menu isHeader key={index} content={item.content} href={item.href} />
                 );
                 })}
             </div>
@@ -99,7 +99,7 @@
             <div className="flex gap-[20px]">
                 {dataMenu.slice(3, dataMenu.length).map((item, index) => {
                 return (
-                    <Menu key={index} content={item.content} href={item.href} />
+                    <Menu isHeader key={index} content={item.content} href={item.href} />
                 );
                 })}
             </div>

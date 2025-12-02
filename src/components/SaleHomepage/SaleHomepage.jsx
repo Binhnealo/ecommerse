@@ -13,7 +13,7 @@ function SaleHomepage() {
           transition: "transform 3s ease",
         }}
       >
-        <img
+        <img className="hidden lg:block"
           src="https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image_1.jpeg"
           alt="anh 1"
         />
@@ -34,7 +34,7 @@ function SaleHomepage() {
           transition: "transform 3s ease",
         }}
       >
-        <img
+        <img className="hidden lg:block"
           src="https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image_2.jpeg"
           alt="anh 2"
         />

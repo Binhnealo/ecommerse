@@ -33,8 +33,8 @@
     Object.keys(timeLeft).forEach((interval) => {
         if (timeLeft[interval] !== undefined) {
         timerComponents.push(
-            <span key={interval} className="bg-white p-[10px] rounded-[3px] m-[5px] ">
-            {formatNumber(timeLeft[interval])} <span className="text-secondaryColor">{interval}</span>{' '}
+            <span key={interval} className="bg-white flex p-[10px] gap-[5px] rounded-[3px] m-[5px] ">
+            {formatNumber(timeLeft[interval])} <span className="text-secondaryColor ">{interval}</span>{' '}
             </span>
         );
         }

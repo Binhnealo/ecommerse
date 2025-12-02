@@ -12,8 +12,8 @@ import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
     function ListProducts() {
     const { products, isShowGrid, isLoading, handleLoadMore, total, isLoadMore } = useContext(OurShopContext);
     return (
-        <div className="min-h-[500px]">
-        <MainLayout>
+        <div className="">
+        <div>
             {isLoading ? (
             <div>Loading...</div>
             ) : (
@@ -21,8 +21,8 @@ import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
                 <div
                 className={cls(
                     isShowGrid
-                    ? "flex flex-wrap  items-start justify-between  gap-[18px]"
-                    : "flex flex-col gap-[18px]"
+                    ? "w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] sm:gap-[20px]"
+                    : " grid grid-cols-1 gap-[15px]"
                 )}
                 >
                 {products.map((item, index) => (
@@ -43,7 +43,7 @@ import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
                 )}
             </>
             )}
-        </MainLayout>
+        </div>
         </div>
     );
     }

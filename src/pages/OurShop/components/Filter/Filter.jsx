@@ -26,7 +26,7 @@
             getValue={getValueSelect}
             type="sort"
             />
-            <div className="flex gap-[10px] pl-[20px] ">
+            <div className="flex gap-[10px] pl-[20px] hidden md:flex">
             <TfiLayoutGrid4 className="text-[20px] text-secondaryColor cursor-pointer" onClick={() => handleGetSetGrid("grid")} />
             <div className="h-[20px] w-[1px] bg-[#e1e1e1]" />
             <CiCircleList className="text-[20px] text-secondaryColor cursor-pointer" onClick={() => handleGetSetGrid("list")} />

@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import { StoreContext } from "@/contexts/StoreProvider";
 import { useNavigate } from "react-router-dom";
 
-    function Menu({ content, href, }) {
+    function Menu({ content, isHeader }) {
     const { menu } = styles;
     const { setIsOpen, setType } = useContext(SidebarContext);
     const{userInfo, handleSignOut} = useContext(StoreContext)
@@ -35,16 +36,23 @@ import { useNavigate } from "react-router-dom";
         if (content === 'Sign In' && userInfo) {
             setIsShowSubMenu(true);
         }
-
+    }
+    const handleClickShowSubMenu = () =>{
+        if (content === 'Sign In' && userInfo) {
+            setIsShowSubMenu(!isShowSubMenu);
+        }
     }
     return (
         <div
-        className={menu}
+        className={classNames(menu, { 
+            "": isHeader,
+            "flex flex-col gap-3": !isHeader,
+         })}
         onMouseEnter={handleHover}
         onClick={handleClickShowLogin}
         >
-        {handleRenderText(content)}
-        {isShowSubMenu && <div onMouseLeave={()=> setIsShowSubMenu(false)} onClick={handleSignOut} className="w-full bg-white p-[10px] absolute top-[40px] rounded-[10px]">SIGN OUT</div>}
+            <div onClick={() =>handleClickShowSubMenu()}>{handleRenderText(content)}</div>
+            {isShowSubMenu && <div onMouseLeave={()=> setIsShowSubMenu(false)} onClick={handleSignOut} className="w-full bg-white p-[10px] absolute top-[40px] rounded-[10px] border-[2px] border-primaryColor">SIGN OUT</div>}
         </div>
     );
     }
