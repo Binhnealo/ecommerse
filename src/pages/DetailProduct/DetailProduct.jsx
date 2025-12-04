@@ -58,14 +58,56 @@
         contentMenu: <Reviews />,
         },
     ];
+    
+    const [windowSize, setWindowSize] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    })
+    useEffect(()=>{
+        const handleResize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+            })
+        }
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
+    const getImageSize = () =>{
+        const { width } = windowSize;
+        if(width < 540){
+        return { width: 152.5, height: 190 };
+        }
+        if(width < 640){
+        return { width: 202.5, height: 240 };
+        }
+        else if(width >= 640 && width < 1087){
+        return { width: 252.5, height: 280 };
+        }
+        else {
+        return { width: 302.5, height: 340 };
+        }
+    }
+
+    const getItems = () =>{
+        const { width } = windowSize;
+        if(width < 768){
+        return {items: 2};
+        }
+        else {
+        return {items: 4};
+        }
+    }
+    const showItem = getItems();
+    const imageSize = getImageSize();
     const handleRenderImageDetails = (src) => {
         return (
         <ReactImageMagnifier
             srcPreview={src}
             srcOriginal={src}
-            width={302.5}
-            height={340}
+            width={imageSize?.width }
+            height={imageSize?.height }
             className="cursor-crosshair"
         />
         );
@@ -187,8 +229,8 @@
                     </div>
                     </div>
                 ) : (
-                    <div className="pt-[15px] flex gap-[25px] justify-between ">
-                    <div className="flex gap-[5px] max-h-[600px] flex-wrap max-w-[610px] with-full">
+                    <div className="pt-[15px] flex flex-col lg:flex-row gap-[25px] justify-between items-center lg:items-start ">
+                    <div className="flex items-center justify-center gap-[5px] max-h-[600px] flex-wrap max-w-[610px] with-full">
                         {data?.images.map((src, index) => (
                         <div key={index}>{handleRenderImageDetails(src)}</div>
                         ))}
@@ -320,14 +362,14 @@
             )}
             </div>
             {relatedData.length ? (
-            <div>
+            <div className="min-w-[350px]">
                 <h2 className="text-center text-primaryColor text-[24px] mb-[10px] mt-[10px]">
                 Related Products
                 </h2>
                 <SliderCommon
                 data={relatedData}
                 isProductItem={true}
-                showItem={4}
+                showItem={showItem.items}
                 />
             </div>
             ) : (

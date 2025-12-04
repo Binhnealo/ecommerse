@@ -8,7 +8,6 @@ import Menu from "@components/Header/Menu";
 import { useNavigate } from "react-router-dom";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import { useContext } from "react";
-
 function MenuSideBar() {
     const { setIsOpen } = useContext(SidebarContext);
 
@@ -29,15 +28,15 @@ function MenuSideBar() {
           return <Menu key={index} content={item.content} isHeader={false} />;
         })}
         <div className="flex flex-col py-[10px] gap-[20px]">
-          <div className="flex gap-[10px] cursor-pointer">
+          <div className="flex gap-[10px] cursor-pointer border-b border-primaryColor pb-[15px]">
             <TfiReload/>
             <span> Compare</span>
           </div>
-          <div className="flex gap-[10px] cursor-pointer">
+          <div className="flex gap-[10px] cursor-pointer border-b border-primaryColor pb-[15px]">
             <CiHeart/>
             <span> Wish List</span>
           </div>
-          <div className="flex gap-[10px] cursor-pointer" onClick={handleNavigateCart}>
+          <div className="flex gap-[10px] cursor-pointer border-b border-primaryColor pb-[15px]" onClick={handleNavigateCart}>
             <BsCart3/>
             <span> Cart</span>
           </div>

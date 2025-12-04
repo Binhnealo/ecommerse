@@ -4,7 +4,7 @@
 
     import { dataBoxIcon, dataMenu } from "./constants";
     import Menu from "./Menu";
-    import Logo from "../../assets/image/Logo-retina.jpg";
+
     import { TfiReload } from "react-icons/tfi";
 
     import { CiHeart } from "react-icons/ci";
@@ -86,12 +86,13 @@
             </div>
             {/* logo */}
             <div>
-            <img
+            {/* <img
                 src={Logo}
                 alt="Logo"
                 className="w-[153px] h-[53px] cursor-pointer"
                 onClick={() => handleBackHome()}
-            />
+            /> */}
+            <h1 className="cursor-pointer text-[24px] hover:font-bold transition-all duration-200" onClick={() => handleBackHome()}>Marseille</h1>
             </div>
             {/* Menu Right & Icons */}
             <div className=" flex items-center gap-[20px] text-primaryColor hidden lg:flex">

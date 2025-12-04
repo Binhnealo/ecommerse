@@ -18,7 +18,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
             {number}
         </div>
         <div
-            className={cls("text-[20px]", {
+            className={cls("text-[20px] hidden md:flex", {
             "text-secondaryColor": isDisabled, // Khi bị disable
             "text-black": !isDisabled, // Khi không bị disable
             })}

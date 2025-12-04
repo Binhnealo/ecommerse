@@ -96,7 +96,7 @@ function QrPayment() {
           </div>
         </div>
       ) : (
-        <div className="flex justify-between">
+        <div className="flex flex-col-reverse md:flex-row justify-between gap-5">
           <div className="flex flex-col gap-[20px] justify-center items-center">
             <h4 className="text-[20px] text-primaryColor">
               Quét mã QR để thanh toán
@@ -106,13 +106,13 @@ function QrPayment() {
               src={qrCodeImage}
               alt="QR Code"
             />
-            <p>Sử dụng ứng dụng ngân hàng của bạn để quét mã QR này</p>
+            <p className="text-center">Sử dụng ứng dụng ngân hàng của bạn để quét mã QR này</p>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center"  >
             <h3 className="mb-[20px]">Chi tiết thanh toán</h3>
-            <div className="border-[2px] border-primaryColor p-[20px] rounded-[10px] w-[500px]">
-              <div>
+            <div className="border-[2px] border-primaryColor p-[20px] rounded-[10px]  max-w-[500px]">
+              <div className="flex flex-col">
                 <div className="flex gap-[20px] items-end mb-[20px]">
                   <img
                     className="w-[40px] h-[40px] object-cover rounded-full"

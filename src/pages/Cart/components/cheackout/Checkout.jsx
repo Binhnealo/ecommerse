@@ -88,7 +88,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
     }, [watch("cities")]);
 
     return (
-        <div className="flex gap-[40px]">
+        <div className="flex flex-col md:flex-row gap-[40px]">
         {/* Left container */}
         <div className="flex-1">
             <p className="text-fourColor text-[14px] mb-[30px]">
@@ -104,7 +104,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
             </h6>
 
             <form ref={formRef} onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex mb-[20px] gap-[30px]">
+            <div className="flex flex-col md:flex-row mb-[20px] gap-[30px]">
                 <InputCustom
                 label={"First Name"}
                 placeholder={"First Name"}

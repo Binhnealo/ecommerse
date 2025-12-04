@@ -32,11 +32,11 @@
   }
 
   .logos-slider .swiper-button-next {
-    right: -20px; /* Đặt nút next xa hơn về bên phải */
+    right: -20px; 
   }
 
   .logos-slider .swiper-button-prev {
-    left: -20px; /* Đặt nút prev xa hơn về bên trái */
+    left: -20px; 
   }
 
   .logos-slider .swiper-button-next::after,

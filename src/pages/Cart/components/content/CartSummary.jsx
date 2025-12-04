@@ -15,7 +15,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
     }
 
     return (
-        <div>
+        <>
         <div className=" flex flex-col gap-[10px] border-[2px] border-primaryColor p-[30px] relative ">
             <div className="text-[14px] mb-[19px] pb-[14px] border-b border-sixColor ">
             CART TOTALS
@@ -39,7 +39,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
             {isLoading && <LoadingCart />}
         </div>
         <PaymentMethod/>
-        </div>
+        </>
     );
     }
 

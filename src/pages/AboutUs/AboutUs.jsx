@@ -33,7 +33,7 @@ import Logos from "@/pages/AboutUs/components/Logos";
         <>
         <MainHeader />
         <MainLayout>
-            <div className="pt-[83px] h-[100vh]">
+            <div className="pt-[83px] ">
             <div className="flex justify-between text-secondaryColor cursor-pointer text-[14px]">
                 <div>
                 <span onClick={() => handleBackHomePage()}>Home </span>&gt;{" "}
@@ -47,19 +47,19 @@ import Logos from "@/pages/AboutUs/components/Logos";
                 </div>
             </div>
             <div className="border-t border-b h-[3px] mt-[50px] relative border-sixColor ">
-                <div className="text-center absolute left-1/2 top-[-30px] px-[60px] bg-white transform -translate-x-1/2 ">
+                <div className="text-center absolute left-1/2 top-[-30px] w-full px-0 maw-w-0 lg:px-[60px] lg:max-w-[600px] bg-white transform -translate-x-1/2 ">
                 <p className="text-[16px] text-thriColor">
                     we try our best for you
                 </p>
                 <h2 className="text-[24px] text-primaryColor">
-                    Welcome to the Marseille04 Shop
+                    Welcome to the Marseille Shop
                 </h2>
                 </div>
             </div>
-            <div className=" flex gap-[30px] mt-[50px] ">
+            <div className=" flex flex-col lg:flex-row gap-[30px] mt-[50px] ">
                 {dataContent.map((item, index) =>(
                     <div key={index}>
-                        <img className="w-full h-[390px]"  src={item.url} alt="" />
+                        <img className="w-full h-[390px] object-cover"  src={item.url} alt="" />
                         <p className="text-thriColor text-[16px] text-start pt-[20px] leading-[26px] ">{item.des}</p>
                 </div>
             ))}

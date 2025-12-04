@@ -19,9 +19,11 @@ import { useNavigate } from "react-router-dom";
         }
         if (content === 'Our Shop'){
             navigate('/shop')
+            setIsOpen(false)
         }
         if (content === 'About Us'){
             navigate('/about-us')
+            setIsOpen(false)
         }
 
     };
@@ -46,7 +48,7 @@ import { useNavigate } from "react-router-dom";
         <div
         className={classNames(menu, { 
             "": isHeader,
-            "flex flex-col gap-3": !isHeader,
+            "flex flex-col gap-3 border-b border-primaryColor": !isHeader,
          })}
         onMouseEnter={handleHover}
         onClick={handleClickShowLogin}

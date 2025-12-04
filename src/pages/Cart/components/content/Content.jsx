@@ -7,7 +7,7 @@
     import { BsCart3 } from "react-icons/bs";
     import { useNavigate } from "react-router-dom";
     import { getCart } from "@/apis/cartService";
-
+    import classNames from "classnames";
     function Content() {
     const {
         listProductsCart,
@@ -73,37 +73,41 @@
     return (
         <>
         {listProductsCart.length > 0 ? (
-            <div className="flex grow p-[15px] gap-[20px] ">
-            <div className="flex-none">
+            <div className="flex flex-col lg:flex-row gap-[20px] w-full">
+            <div className="w-full lg:w-2/3 flex-shrink-0">
                 <CartTable
                 listProductsCart={listProductsCart}
                 getData={handleReplaceQuantity}
                 isLoading={isLoading}
                 getDataDelete={handleDeleteItemCart}
                 />
-                <div className="flex justify-between mt-[15px]">
-                <div className="flex gap-[2px] ">
-                    <div className="border border-gray-300 rounded-[2px] w-[300px] ">
+                <div className={classNames(
+              "flex flex-col lg:flex-row gap-[15px] mt-[15px]",
+              
+            )}>
+                <div className="flex gap-[3px] w-full ">
+                    <div className="border border-gray-300 rounded-[2px] flex-1 ">
                     <input
                         type="text"
                         placeholder="Coupon code"
-                        className="px-[15px] outline-none py-[8px]"
+                        className="px-[15px] outline-none py-[8px] w-full"
                     />
                     </div>
-                    <div className="text-[12px]">
+                    <div className="text-[12px] ">
                     <Button content="OK" isPrimary={false} />
                     </div>
                 </div>
-                <div className="">
+                <div className="w-full mt-[10px] lg:mt-0 ">
                     <Button
                     content="CLEAR SHOPPING CART"
                     isPrimary={false}
                     onClick={handleDeleteCart}
+                    
                     />
                 </div>
                 </div>
             </div>
-            <div className="flex-1">
+            <div className="w-full lg:w-1/3 flex-shrink-0">
                 <CartSummary
                 listProductsCart={listProductsCart}
                 isLoading={isLoading}
@@ -118,7 +122,7 @@
             <div className="text-primaryColor text-[25px] mb-[7px]">
                 YOUR SHOPING CART IS EMPTY
             </div>
-            <div className="text-[14px] text-thriColor mb-[20px]">
+            <div className="text-[14px] text-center text-thriColor mb-[20px]">
                 We invite you to get acquainted with an assortment of our shop.
                 Surely you can find something for yourself!
             </div>

@@ -143,9 +143,9 @@ function ProductItem({
 
         <div
           className={cls(
-            "size-[16px] my-[6px] text-fourColor w-full font-medium",
+            "text-[16px] text-center my-[6px] text-fourColor w-full font-medium",
             {
-              ["flex items-center justify-center text-primaryColor"]:
+              ["flex items-center tex-center justify-center text-primaryColor"]:
                 !isHomePage,
             }
           )}
@@ -169,8 +169,8 @@ function ProductItem({
         </div>
 
         {!isHomePage && (
-          <div className=" flex items-center justify-center w-[290px]">
-            <div className="w-[200px] h-[35px]">
+          <div className=" flex items-center justify-center w-full">
+            <div className="w-[80%] h-[35px]">
               <Button
                 content={
                   isLoadingAddToCart ? <LoadingTextCommon /> : "ADD TO CART"

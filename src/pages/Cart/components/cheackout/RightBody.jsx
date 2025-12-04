@@ -15,7 +15,7 @@ import Button from "@components/Button/Button";
         0
     );
     return (
-        <div className="w-[39%] h-[100%] py-[23px] px-[28px] border-[2px] border-primaryColor  ">
+        <div className="w-full md:w-[39%] h-[100%] py-[23px] px-[28px] border-[2px] border-primaryColor  ">
             <p className="text-[16px] text-primaryColor border-b border-sixColor pb-[14px] mb-[14px]">
                 YOUR ORDER
             </p>

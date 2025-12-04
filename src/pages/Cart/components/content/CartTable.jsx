@@ -25,9 +25,9 @@
     };
 
     return (
-        <div className="w-[800px] border-b  border-sixColor p-3 relative">
-        <table className="w-full border-collapse ">
-            <thead>
+        <div className="w-full max-w-[1200px] max-h-[600px] overflow-y-auto overflow-x-auto border-b  border-sixColor p-3 relative">
+        <table className="w-full min-w-[700px] border-collapse ">
+            <thead className="">
             <tr className="text-left border-b border-sixColor">
                 <th className="pb-2 text-[14px] font-normal text-primaryColor  ">
                 PRODUCT

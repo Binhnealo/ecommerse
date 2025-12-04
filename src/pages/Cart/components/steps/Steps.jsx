@@ -6,7 +6,7 @@ import { SteperContext } from "@/contexts/SteperProvider";
     function Steps() {
         const { currentStep } = useContext(SteperContext);
     return (
-        <div className="bg-[#fafafa] w-full flex flex-col justify-center items-center py-[2.3vw] gap-[40px] mb-[2.3vw]">
+        <div className="bg-[#fafafa] w-full flex flex-col justify-center  items-center py-[2.3vw] gap-[40px] mb-[2.3vw]">
         <div className="flex gap-[20px] justify-center items-center  ">
             {dataSteps.map((item, index) => {
             return (
@@ -20,13 +20,13 @@ import { SteperContext } from "@/contexts/SteperProvider";
                     isDisabled={index >= currentStep}
                 />
                 {index !== dataSteps.length - 1 && (
-                    <div className="min-w-[120px] h-[1px] bg-[#e1e1e1]"></div>
+                    <div className="min-w-[80px] lg:min-w-[120px] flex-1 h-[1px] bg-[#e1e1e1]"></div>
                 )}
                 </div>
             );
             })}
         </div>
-        <div className="text-fourColor">
+        <div className="text-fourColor text-center">
             You are out of time? checkout now to avoid losing your order!
         </div>
         </div>
