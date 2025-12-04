@@ -21,7 +21,7 @@ import LoadingTextCommon from "@components/LoadingTextCommon/LoadingTextCommon";
                 <div
                 className={cls(
                     isShowGrid
-                    ? "w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] sm:gap-[20px]"
+                    ? "w-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px]"
                     : " grid grid-cols-1 gap-[15px]"
                 )}
                 >

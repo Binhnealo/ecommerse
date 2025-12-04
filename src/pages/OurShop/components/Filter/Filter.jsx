@@ -19,7 +19,7 @@
     }
 
     return (
-        <div className="flex justify-between items-center py-[15px]">
+        <div className="flex justify-between flex-col gap-5 sm:flex-row items-center py-[15px]">
         <div className="flex items-center ">
             <SelectBox
             options={sortOptions}

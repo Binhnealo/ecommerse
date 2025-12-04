@@ -143,7 +143,7 @@ function ProductItem({
 
         <div
           className={cls(
-            "text-[16px] text-center my-[6px] text-fourColor w-full font-medium",
+            "text-[14px] md:text-[16px] text-center my-[6px] text-fourColor w-full font-medium  ",
             {
               ["flex items-center tex-center justify-center text-primaryColor"]:
                 !isHomePage,
@@ -160,7 +160,7 @@ function ProductItem({
         )}
 
         <div
-          className={cls("size-[14px] text-secondaryColor w-full", {
+          className={cls("size-[14px] text-center text-secondaryColor w-full", {
             ["flex items-center justify-center mb-[10px] text-secondaryColor"]:
               !isHomePage,
           })}
