@@ -4,9 +4,11 @@ import classNames from "classnames";
 import { SidebarContext } from "@/contexts/SideBarProvider";
 import { StoreContext } from "@/contexts/StoreProvider";
 import { useNavigate } from "react-router-dom";
+import { ToastContext } from "@/contexts/ToastProvider";
 
     function Menu({ content, isHeader }) {
     const { menu } = styles;
+    const {toast}= useContext(ToastContext);
     const { setIsOpen, setType } = useContext(SidebarContext);
     const{userInfo, handleSignOut} = useContext(StoreContext)
     const [isShowSubMenu, setIsShowSubMenu] = useState(false);
@@ -24,6 +26,16 @@ import { useNavigate } from "react-router-dom";
         if (content === 'About Us'){
             navigate('/about-us')
             setIsOpen(false)
+        }
+        if (content === 'Contact'){
+            toast.info('Contact Us page is updating!')
+            
+        }
+        if (content === 'Element'){
+            toast.info('Element page is updating!')
+        }
+        if (content === 'Search'){
+            toast.info('Search is updating!')
         }
 
     };

@@ -27,7 +27,7 @@
                 />
             </div>
             <div>
-                <p className="text-white text-[15px]">Copyright © 20205 By Binh.</p>
+                <p className="text-white text-[15px]">Copyright © 20205 By <a href="https://binhnealo.github.io/Profile/" className="underline">Binh</a>.</p>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ function WishList() {
     return <div className="flex flex-col justify-between h-[99%] py-[20px] pr-[10px] pl-[20px] ">
         <div>
             <HeaderSideBar icon={<CiHeart  className="size-[25px]" />} title='WISHLIST'/>
-            <ItemProd/>
+            <h3 className="mt-5 text-center">Wish List Is Updating!</h3>
         </div>
         <div className="flex flex-col gap-[10px]">
             <Buttton content={'VIEW WISH LIST'}/>
